@@ -1,0 +1,31 @@
+div.nav-bar-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 40px;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    z-index: 10;
+    
+    & > div.nav-bar { 
+        min-width: 900px;
+        display: grid;
+        grid-template-areas: "company-logo nav-button";
+        align-items: center;
+
+        & > div:nth-child(1) {
+            grid-area: company-logo;
+            justify-self: start;
+        }
+
+        & > div:nth-child(2) {
+            grid-area: nav-button;
+            justify-self: end;
+        }
+    }
+}

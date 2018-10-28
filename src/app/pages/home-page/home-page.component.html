@@ -1,0 +1,19 @@
+<div class="app-home-page-wrapper">
+  <div class="app-home-page-header">
+    <app-home-page-header></app-home-page-header>
+  </div>
+  <div class="app-home-page-content">
+    <div>
+      <div>
+        <app-type-filter *ngFor="let type of types" [type]="type"></app-type-filter>
+      </div>
+      <div class="skill-filter">
+        <h3>FILTER CHALLENGES BY SKILL</h3>
+        <app-skill-filter *ngFor="let skill of skills" [skill]="skill" (onClick)="onClick(skill)"></app-skill-filter>
+      </div>
+    </div>
+    <div>
+      <app-challenge-content *ngFor="let challenge of challenges" [challenge]="challenge"></app-challenge-content>
+    </div>
+  </div>
+</div>

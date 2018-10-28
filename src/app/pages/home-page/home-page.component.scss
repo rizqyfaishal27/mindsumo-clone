@@ -1,0 +1,35 @@
+div.app-home-page-wrapper {
+    display: grid;
+    & > div.app-home-page-content {
+        justify-self: center;
+        margin-top: 2rem;
+        display: grid;
+        max-width: 900px;
+        grid-gap: 1rem;
+        grid-template-areas: "filtering challenges-content";
+        grid-template-columns: 1fr 3fr;
+        align-items: start;
+
+        & > div:first-child {
+            grid-area: filtering;
+            width: 225px;
+
+            display: grid;
+            grid-template-areas: "type-filter" "skill-filter";
+            align-items: start;
+            grid-gap: 1rem;
+
+            & > div:first-child {
+                grid-area: type-filter;
+            }
+
+            & > div:last-child {
+                grid-area: skill-filter;
+                & > h3 {
+                    font-size: 0.8rem;
+                    color: grey;
+                }
+            }
+        }
+    }
+}

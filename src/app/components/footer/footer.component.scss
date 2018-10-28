@@ -1,0 +1,16 @@
+div.footer-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    & > div.footer {
+        padding: 0.5rem 0;
+        min-width: 900px;
+        
+        & > p {
+            color: #939393;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+    }
+}

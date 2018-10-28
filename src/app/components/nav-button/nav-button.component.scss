@@ -1,0 +1,27 @@
+button {
+    background: linear-gradient(to bottom, #42a5b2 0%, #428ab5 100%);
+    color: #fff;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    padding: 6px 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    & > img {
+        margin-right: 0.5rem;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus {
+        background: linear-gradient(to bottom, #42a5b2 0%, #366a88 100%);
+    }
+
+    &:active {
+        background: linear-gradient(to bottom, #42a5b2 0%, #315569 100%);
+    }
+}
