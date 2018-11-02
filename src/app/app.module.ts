@@ -12,6 +12,7 @@ import { HomePageHeaderComponent } from './components/home-page-header/home-page
 import { SkillFilterComponent } from './components/skill-filter/skill-filter.component';
 import { TypeFilterComponent } from './components/type-filter/type-filter.component';
 import { ChallengeContentComponent } from './components/challenge-content/challenge-content.component';
+import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ChallengeContentComponent } from './components/challenge-content/challe
     HomePageHeaderComponent,
     SkillFilterComponent,
     TypeFilterComponent,
-    ChallengeContentComponent  
+    ChallengeContentComponent,
+    AuthDialogComponent  
   ],
   imports: [
     BrowserModule,
