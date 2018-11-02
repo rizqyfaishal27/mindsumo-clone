@@ -1,3 +1,5 @@
+import { Skill } from "./skill";
+
 export class Challenge {
     id: number;
     title: string;
@@ -9,4 +11,5 @@ export class Challenge {
     status2: string;
     bannerImage: string;
     accountImage: string;
+    skills: Skill[];
 }

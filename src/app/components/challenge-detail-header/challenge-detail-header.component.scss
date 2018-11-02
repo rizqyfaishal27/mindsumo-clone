@@ -1,0 +1,49 @@
+div.app-challenge-detail-header {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 1rem;
+    padding: 2rem;
+    background: url('/assets/pattern.png') repeat;
+    color: #ffffff;
+    & > div {
+        width: 900px;
+        display: grid;
+        grid-gap: 1rem;
+        & > h1 {
+            margin: 0;
+        }
+        & > div.challenge-info {
+            margin-top: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem;
+        }
+        & > div.author {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            justify-items: space-around;
+            & > div {
+                &:first-child {
+                    display: flex;
+                    align-items: center;
+                    & > img {
+                        height: 30px;
+                        margin-right: 1rem;
+                    }
+                }
+                &:last-child {
+                    justify-self: end;
+                    & > p {
+                        font-size: 0.8rem;
+                        & > a {
+                            text-decoration: none;
+                            color: #428ab5;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

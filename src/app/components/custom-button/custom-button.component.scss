@@ -1,0 +1,21 @@
+button {
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1.2rem;
+    width: 100%;
+
+    background-color: #428ab5;
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:disabled {
+        color: #696969;
+        background-color: #dddddd;
+    }
+}

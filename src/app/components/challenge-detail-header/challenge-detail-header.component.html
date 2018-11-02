@@ -1,0 +1,22 @@
+<div class="app-challenge-detail-header">
+  <div>
+    <div class="author">
+      <div>
+        <img src="/assets/group_2.svg" alt="account-icon" /> Anonymous
+      </div>
+      <div>
+        <p>Next challenge: <a href="#">Our next social media produ...</a></p>
+      </div>
+    </div>
+    <h1>{{ challenge.title }}</h1>
+    <div class="skill-tags">
+      <app-skill-tag *ngFor="let skill of challenge.skills" [skill]="skill"></app-skill-tag>
+    </div>
+    <div class="challenge-info">
+      <div>
+        <app-start-drafting-button></app-start-drafting-button>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+a {
+    display: flex;
+    align-items: center;
+    background-color: #2daae2;
+    padding: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    & > img {
+        height: 28px;
+        padding-right: 0.5rem;
+        border-right: 1px solid #dddddd;
+        margin-right: 1rem;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:visited {
+        opacity: 0.9;
+    }
+}

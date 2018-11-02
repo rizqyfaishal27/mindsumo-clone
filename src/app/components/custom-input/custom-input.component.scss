@@ -1,0 +1,21 @@
+div {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    
+    & > img {
+        position: absolute;
+        height: 28px;
+        left: 0.75rem;
+    }
+
+    & > input {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1.2rem;
+        padding-left: calc(1.2rem + 28px);
+        color: #444444;
+    }
+}

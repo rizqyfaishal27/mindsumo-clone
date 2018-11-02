@@ -76,4 +76,7 @@ div.app-home-page-wrapper {
             }
         }
     }
+    &.noscroll {
+        overflow: hidden;
+    }
 }

@@ -11,7 +11,17 @@ export const CHALLENGES: Challenge[] = [
         price: 800,
         author: '',
         bannerImage: '/assets/sample-banner.jpg',
-        accountImage: '/assets/group.svg'
+        accountImage: '/assets/group.svg',
+        skills: [
+            {
+                id: 1,
+                skillName: "Bussiness"
+            },
+            {
+                id: 2,
+                skillName: "Computer Sciences"
+            }
+        ]
     },
     {
         id: 2,
@@ -23,6 +33,16 @@ export const CHALLENGES: Challenge[] = [
         price: 800,
         author: '',
         bannerImage: '/assets/sample-banner.jpg',
-        accountImage: '/assets/group.svg'
+        accountImage: '/assets/group.svg',
+        skills: [
+            {
+                id: 1,
+                skillName: "Bussiness"
+            },
+            {
+                id: 2,
+                skillName: "Computer Sciences"
+            }
+        ]
     }
 ]
