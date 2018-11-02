@@ -1,0 +1,119 @@
+div.app-challenge-content {
+    display: grid;
+    grid-template-areas: "challenge-banner text-content";
+    grid-template-columns:  2fr 5fr;
+    grid-gap: 1rem;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px #eaeaea;
+    border-radius: 5px;
+    border: #e3e3e3 solid 1px;
+    border-top: 4px solid #90bd4a;
+    position: relative;
+    & > div:nth-child(2).ribbon-status {
+        position: absolute;
+        top: -1.2rem;
+        right: 2rem;
+        box-shadow: 1px 2px 0px 0px #abda62;
+        text-transform: uppercase;
+
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        background-color: #90bd4a;
+        color: #ffffff;
+        font-size: 0.8rem;
+        & > img {
+            height: 1rem;
+            margin-right: 5px;
+        }
+    }
+    & > div:first-child {
+        grid-area: challenge-banner;
+        z-index: 2;
+        display: grid;
+        align-items: stretch;
+        & > img {
+            width: 100%;
+            z-index: 1;
+            border-bottom-left-radius: 5px;
+            overflow-y: hidden;
+        }
+    }
+
+    & > div:last-child {
+        grid-area: text-content;
+        display: grid;
+        position: relative;
+        grid-template-columns: 5fr 1fr;
+        grid-template-areas: "title detail";
+        grid-gap: 1rem;
+        color: #444444;
+        align-items: center;
+        padding-right: 1rem;
+        & > div:first-child {
+            grid-area: title;
+            display: grid;
+            grid-gap: 1rem;
+            & > h3 {
+                font-weight: 500;
+                margin: 0;
+            }
+
+            & > div.app-challenge-author {
+                display: grid;
+                justify-items: start;
+                & > div {
+                    display: flex;
+                    align-items: center;
+                    & > img {
+                        height: 2rem;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        & > div:last-child {
+            display: grid;
+            grid-gap: 1rem;
+            align-items: center;
+            & > div {
+                display: grid;
+                justify-content: end;
+                align-items: center;
+                & > div {
+                    display: grid;
+                    align-items: center;
+                    & > div {
+                        display: flex;
+                        align-items: center;
+                        & > img {
+                            height: 1.5rem;
+                            margin-right: 0.5rem;
+                        }
+                        & > h3 {
+                            margin: 0;
+                        }
+                    }
+                    & > p {
+                        margin: 0;
+                        text-align: right;
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+        }
+    }
+
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+        & > div:first-child {
+            overflow: hidden;
+            & > img {
+                transition: transform ease-in-out 0.2s;
+                transform: scale(1.4);
+            }
+        }
+    }
+}

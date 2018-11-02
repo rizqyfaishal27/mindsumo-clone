@@ -9,6 +9,26 @@ div.app-home-page-wrapper {
         grid-template-areas: "filtering challenges-content";
         grid-template-columns: 1fr 3fr;
         align-items: start;
+        
+        & > div:last-child {
+            grid-area: challenges-content;
+            grid-gap: 1.5rem;
+            display: grid;
+
+            & > div:last-child.loadmore {
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                grid-gap: 1rem;
+                cursor: pointer;
+                background-color: #ddd;
+                padding: 0.5rem;
+                border-radius: 4px;
+                & > p {
+                    margin: 0;
+                }
+            }
+        }
 
         & > div:first-child {
             grid-area: filtering;
@@ -23,11 +43,35 @@ div.app-home-page-wrapper {
                 grid-area: type-filter;
             }
 
-            & > div:last-child {
+            & > div:nth-child(2) {
                 grid-area: skill-filter;
                 & > h3 {
                     font-size: 0.8rem;
                     color: grey;
+                }
+            }
+
+            & > div:last-child {
+                background-color: #fff;
+                border-top: 3px solid #bd3668;
+                padding: 1rem;
+                & > p {
+                    color: #6b6b6b;
+                    font-size: 0.85rem;
+                }
+                & > a.learnmore {
+                    color: #428ab5;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    font-size: 0.8rem;
+                    &  > img {
+                        height: 1rem;
+                        margin-right: 0.5rem;
+                    }
+                    &:hover {
+                        opacity: 0.8;
+                    }
                 }
             }
         }

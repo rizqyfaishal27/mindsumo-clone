@@ -2,7 +2,45 @@
   <div class="app-challenge-banner">
     <img [src]="challenge.bannerImage" alt="banner-image" />
   </div>
+  <div class="ribbon-status">
+    <img src="/assets/flag.svg" alt="flag-icon" />
+    NEW
+  </div>
   <div class="app-challenge-text-content">
-    {{ challenge.title }}
+    <div>
+      <h3>{{ challenge.title }}</h3>
+      <div class="app-challenge-author">
+        <div *ngIf="challenge.isAnonymousAuthor">
+          <img src="/assets/group.svg" alt="account-picture" />
+          Anonymous
+        </div>
+        <div *ngIf="!challenge.isAnonymousAuthor">
+          <img [src]="challenge.accountImage" alt="account-picture" />
+          {{ challenge.author }}
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <img src="/assets/clock.svg" alt="days-left-icon" />
+            <h3>{{ challenge.daysLeft }}</h3>
+          </div>
+          <p>days left</p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <img src="/assets/dollar-coins.svg" alt="dollar-sign" />
+            <h3>{{ challenge.price }}</h3>
+          </div>
+          <p>
+            top 50%
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

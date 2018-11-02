@@ -10,7 +10,8 @@ export const CHALLENGES: Challenge[] = [
         status2: 'New',
         price: 800,
         author: '',
-        bannerImage: '/assets/sample-banner.jpg'
+        bannerImage: '/assets/sample-banner.jpg',
+        accountImage: '/assets/group.svg'
     },
     {
         id: 2,
@@ -21,6 +22,7 @@ export const CHALLENGES: Challenge[] = [
         status2: 'New',
         price: 800,
         author: '',
-        bannerImage: '/assets/sample-banner.jpg'
+        bannerImage: '/assets/sample-banner.jpg',
+        accountImage: '/assets/group.svg'
     }
 ]

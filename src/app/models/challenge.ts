@@ -8,4 +8,5 @@ export class Challenge {
     status: boolean;
     status2: string;
     bannerImage: string;
+    accountImage: string;
 }
