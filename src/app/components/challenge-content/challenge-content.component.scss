@@ -41,6 +41,7 @@ div.app-challenge-content {
     }
 
     & > div:last-child {
+        padding: 1rem 0;
         grid-area: text-content;
         display: grid;
         position: relative;
@@ -65,9 +66,16 @@ div.app-challenge-content {
                 & > div {
                     display: flex;
                     align-items: center;
-                    & > img {
+                    border-radius: 50%;
+                    & > div {
                         height: 2rem;
+                        width: 2rem;
+                        overflow: hidden;
                         margin-right: 0.5rem;
+                        border-radius: 50%;
+                        & > img {
+                            height: 2rem;
+                        }
                     }
                 }
             }

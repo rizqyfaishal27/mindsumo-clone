@@ -3,10 +3,31 @@
     <div class="nav-bar-company-logo">
       <img src="/assets/logo.png" alt="company-logo" height="36" />
     </div>
-    <div class="nav-bar-auth-button">
-      <app-nav-button 
+    <div class="nav-bar-auth-button" *ngIf="!appStateService.getState().isAppLoading ">
+      <app-nav-button *ngIf="!appStateService.getState().isLogin"
+        (click)="onClick()"
         buttonText="Login/SignUp" 
         svgIcon="/assets/sign-in.svg"></app-nav-button>
+      <div *ngIf="appStateService.getState().isLogin"
+        (click)="onAccountClick($event);"
+        class="account-image-button">
+        <img src="/assets/friend-request.svg" alt="hanya-icon" height="30" 
+          *ngIf="!appStateService.getState().authData.user.avatar"/>
+        <div *ngIf="appStateService.getState().authData.user.avatar">
+          <img [src]="appStateService.getState().authData.user.avatar" alt="hanya-icon" height="30" />
+        </div>
+      </div>
+      <div class="list-menu" *ngIf="appStateService.getState().isShowAccountMenu">
+        <span class="triangle"></span>
+        <a href="#" routerLink="account-profile">
+          View Profile
+          <img src="/assets/group_3.svg" alt="pointing-to-the-right" height="20"/>
+        </a>
+        <a href="#" (click)="onLogoutClick($event);">
+          Logout
+          <img src="/assets/arrow-pointing-right-in-a-circle.svg" alt="pointing-to-the-right" height="20"/>
+        </a>
+        </div>  
     </div>
   </div>
 </div>

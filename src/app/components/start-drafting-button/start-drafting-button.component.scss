@@ -1,0 +1,28 @@
+a.start-drafting-button {
+    background: linear-gradient(to bottom, #42a5b2 0%, #428ab5 100%);
+    text-decoration: none;
+    color: white;
+    border-radius: 6px;
+    display: grid;
+    padding: 0.25rem;
+    & > div  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > img {
+            height: 20px;
+        }
+        & > h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        & > p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

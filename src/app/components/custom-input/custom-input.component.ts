@@ -10,6 +10,7 @@ export class CustomInputComponent implements OnInit {
   @Input() type: string;
   @Input() svgIcon: string;
   @Input() placeholder: string;
+  @Input() icon: boolean;
 
   constructor() { }
 

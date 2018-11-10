@@ -1,4 +1,4 @@
-<div class="app-challenge-content">
+<div class="app-challenge-content" routerLink="challenge-detail/{{challenge.id}}">
   <div class="app-challenge-banner">
     <img [src]="challenge.bannerImage" alt="banner-image" />
   </div>
@@ -11,12 +11,17 @@
       <h3>{{ challenge.title }}</h3>
       <div class="app-challenge-author">
         <div *ngIf="challenge.isAnonymousAuthor">
-          <img src="/assets/group.svg" alt="account-picture" />
+          <div>
+            <img src="/assets/group.svg" alt="account-picture" />
+          </div>
           Anonymous
         </div>
         <div *ngIf="!challenge.isAnonymousAuthor">
-          <img [src]="challenge.accountImage" alt="account-picture" />
-          {{ challenge.author }}
+          <div>
+            <img [src]="challenge.author.avatar" alt="account-picture" *ngIf="challenge.author.avatar != null" />
+            <img src="/assets/group.svg" alt="account-picture" *ngIf="challenge.author.avatar == null" />
+          </div>
+          {{ challenge.author.firstName }} {{ challenge.author.lastName }}
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ import { Challenge } from '@app/models/challenge';
 export class ChallengeDetailHeaderComponent implements OnInit {
 
   @Input() challenge: Challenge;
-  
+
   constructor() { }
 
   ngOnInit() {

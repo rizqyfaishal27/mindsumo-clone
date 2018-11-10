@@ -1,0 +1,16 @@
+div.app-challenge-detail-page {
+    display: grid;
+    & > div:last-child {
+        margin-top: 2rem;
+        display: grid;
+        justify-items: center;
+        & > div.deliverables, & > div.submission {
+            display: grid;
+            width: 900px;
+            & > h3 {
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid #dddddd;
+            }
+        }
+    }
+}

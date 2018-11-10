@@ -1,0 +1,40 @@
+div.app-edit-profile-page {
+    display: grid;
+    margin-top: 4rem;
+    justify-items: center;
+    & > div {
+        background-color: #e5e5e5;
+        display: grid;
+        width: 900px;
+        position: relative;
+        & > div.tabs {
+            position: absolute;
+            top: -2rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            & > div {
+                cursor: pointer;
+                border-top-left-radius: 7px;
+                border-top-right-radius: 7px;
+                padding: 0.5rem 1.25rem;
+                margin-right: 1rem;
+                background-color: #e5e5e5;
+                & > h4 {
+                    font-weight: 500;
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+                &.active {
+                    border-top: 2px solid #428ab5;
+                    color: #428ab5;
+                }
+            }
+           
+        }
+        & > div:last-child {
+            padding: 1.5rem;
+        }
+    }
+}

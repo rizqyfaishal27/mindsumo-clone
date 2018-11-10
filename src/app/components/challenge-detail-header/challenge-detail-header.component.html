@@ -17,6 +17,34 @@
         <app-start-drafting-button></app-start-drafting-button>
       </div>
       <div></div>
+      <div>
+        <div>
+          <div>
+            <img src="/assets/dollar-coins_white.svg" alt="dollar" />
+            <h3>{{ challenge.price }}</h3>
+          </div>
+          <p>top 16%</p>
+        </div>
+        <div>
+          <div>
+            <h3>0</h3>
+          </div>
+          <p>submissions</p>
+        </div>
+        <div>
+          <div>
+            <img src="/assets/clock_white.svg" alt="clock" />
+            <h3>3</h3>
+          </div>
+          <p>days left</p>
+        </div>
+      </div>
+    </div>
+    <div class="challenge-description">
+      <div [innerHTML]="challenge.description" class="inner-html"></div>
+      <div>
+        <img [src]="challenge.bannerImage" alt="banner-image"/>
+      </div>
     </div>
   </div>
 </div>

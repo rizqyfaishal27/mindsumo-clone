@@ -1,0 +1,12 @@
+div.app-loading-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: calc(100vh - (150px));
+    width: 100%;
+    padding: 0;
+    & > img {
+        height: 70px;
+    }
+}

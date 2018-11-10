@@ -1,15 +1,16 @@
 <div class="app-home-page-wrapper">
-  <div class="app-home-page-header">
+  <app-loading-state *ngIf="skills == null || challenges == null"></app-loading-state>
+  <div class="app-home-page-header" *ngIf="skills != null && challenges != null">
     <app-home-page-header></app-home-page-header>
   </div>
-  <div class="app-home-page-content">
+  <div class="app-home-page-content" *ngIf="skills != null && challenges != null">
     <div>
       <div>
         <app-type-filter *ngFor="let type of types" [type]="type"></app-type-filter>
       </div>
       <div class="skill-filter">
         <h3>FILTER CHALLENGES BY SKILL</h3>
-        <app-skill-filter *ngFor="let skill of skills" [skill]="skill" (onClick)="onClick(skill)"></app-skill-filter>
+        <app-skill-filter *ngFor="let skill of skills"  [skill]="skill" (onClick)="onClick(skill)"></app-skill-filter>
       </div>
       <div>
         <p>

@@ -1,12 +1,14 @@
-<div class="app-auth-dialog" *ngIf="show"> 
+<div class="app-auth-dialog" *ngIf="appStateService.getState().isShowAuthDialog"> 
     <div class="dialog-content">
         <h3>Get access to Challenges through suara.in</h3>
         <app-facebook-auth-button></app-facebook-auth-button>
         <app-twitter-auth-button></app-twitter-auth-button>
         <p>We will <span style="text-decoration: underline;">never</span> post anything on your behalf.</p>
         <app-login-form></app-login-form>
-        <p class="to-page">Login on create account for free! <a href="#">Forgot password</a>&nbsp;|&nbsp;<a href="#">Need to verify email??</a></p>
-        <div class="close-button">
+        <p class="to-page">Login on create account for free! 
+        <a (click)="onCreateNewAccountClick();">Create new account</a>&nbsp;|&nbsp;
+        <a (click)="onForgotPasswordClick();">Forgot password??</a></p>
+        <div class="close-button" (click)="appStateService.setIsShowAuthDialog(false);">
             x
         </div>
     </div>

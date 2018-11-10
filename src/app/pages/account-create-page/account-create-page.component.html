@@ -1,3 +1,79 @@
-<p>
-  account-create-page works!
-</p>
+<div class="app-account-create-page">
+  <div>
+    <div class="form">
+      <h2>Create your new account</h2>
+        <form #registerForm="ngForm" novalidate (ngSubmit)="registerForm.valid && onSubmit();" appConfirmPassword> 
+          <div class="form-field">
+            <label for="#firstNameField">First name</label>
+            <input id="firstNameField" type="text" placeholder="Your first name" #firstName="ngModel" 
+              [(ngModel)]="user.firstName" name="firstName" required/>
+            <div class="errors" *ngIf="firstName.errors && (firstName.touched || firstName.dirty)">
+              <span *ngIf="firstName.errors.required">
+                Harus di isi ya gan
+              </span>
+            </div>
+          </div>
+          <div class="form-field">  
+            <label>Last name</label>
+            <input type="text" placeholder="Your last name" #lastName="ngModel" 
+              [(ngModel)]="user.lastName" name="lastName" required/>
+            <div class="errors" *ngIf="lastName.errors && (lastName.touched || lastName.dirty)">
+              <span *ngIf="lastName.errors.required">
+                yang ini juga lo gan. Kalo ga punya 'last name' kasih character ini '-' aja.
+              </span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="Your email" email="true" #email="ngModel"
+              [(ngModel)]="user.email" name="email" required/>
+            <div class="errors" *ngIf="email.errors && (email.touched || email.dirty)">
+              <span *ngIf="email.errors.required">
+                Harus diisi ya gan
+              </span>
+              <span *ngIf="email.errors.email">
+                Email lo ga valid gan
+              </span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <input type="password" placeholder="Password" #password="ngModel" 
+              [(ngModel)]="user.password" name="password" required/>
+            <div class="errors" *ngIf="password.errors && (password.touched || password.dirty)">
+              <span *ngIf="password.errors.required">
+                Ini jangan lupa juga gan
+              </span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Password confirm</label>
+            <input type="password" placeholder="Confirm password" #confirmPassword="ngModel" 
+              class="confirm-password" [ngClass]="{'no-valid': registerForm.errors && registerForm.errors.confirmPasswordValid == false}"
+              [(ngModel)]="user.confirmPassword" name="confirmPassword" required/>
+            <div class="errors" 
+              *ngIf="confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty)">
+              <span *ngIf="confirmPassword.errors.required">
+                Eh jangan lupa ini juga 
+              </span>
+            </div>
+            <div class="errors" *ngIf="confirmPassword.dirty && 
+              registerForm.errors && registerForm.errors.confirmPasswordValid == false;">
+              <span>
+                Password tidak match
+              </span>
+            </div>
+          </div>
+          {{ registerForm.valid }}
+          <button>
+              <span *ngIf="!isLoading">Register</span>
+              <span *ngIf="isLoading">
+                <img src="/assets/loading2.svg" alt="just-loader-icon" height="25" width="100"/>
+              </span>
+          </button>
+
+        </form>
+
+      </div>
+  </div>
+</div>

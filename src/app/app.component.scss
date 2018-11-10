@@ -19,4 +19,9 @@ div.app-wrapper {
     & > app-footer {
         grid-area: footer;
     }
+
+    div.inner-html > p {
+        margin: 0;
+        line-height: 1.3rem;   
+    }
 }

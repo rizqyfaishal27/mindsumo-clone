@@ -1,3 +1,13 @@
-<div>
+<div class="app-challenge-detail-page">
   <app-challenge-detail-header [challenge]="challenge"></app-challenge-detail-header>
+  <div>
+    <div class="deliverables">
+      <h3>Deliverables</h3>
+      <div [innerHTML]="challenge.deliverables" class="inner-html"></div>
+    </div>
+    <div class="submission">
+      <h3>Submission</h3>
+      <div></div>
+    </div>
+  </div>
 </div>

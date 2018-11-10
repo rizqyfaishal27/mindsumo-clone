@@ -17,7 +17,6 @@ import { FacebookAuthButtonComponent } from './components/facebook-auth-button/f
 import { TwitterAuthButtonComponent } from './components/twitter-auth-button/twitter-auth-button.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
-import { VerifyEmailPageComponent } from './pages/verify-email-page/verify-email-page.component';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { AccountCreatePageComponent } from './pages/account-create-page/account-create-page.component';
@@ -25,6 +24,16 @@ import { ChallengeDetailPageComponent } from './pages/challenge-detail-page/chal
 import { ChallengeDetailHeaderComponent } from './components/challenge-detail-header/challenge-detail-header.component';
 import { SkillTagComponent } from './components/skill-tag/skill-tag.component';
 import { StartDraftingButtonComponent } from './components/start-drafting-button/start-drafting-button.component';
+import { AccountProfilePageComponent } from './pages/account-profile-page/account-profile-page.component';
+import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingStateComponent } from './components/loading-state/loading-state.component';
+import { LoadingStateCompComponent } from './components/loading-state-comp/loading-state-comp.component';
+
+import { SkillsResolver } from '@app/pages/home-page/skills-resolver';
+import { ChallengesResolver } from '@app/pages/home-page/challenges-resolver';
+import { ChallengeResolver } from './pages/challenge-detail-page/challenge-resolver';
+import { ConfirmPasswordDirective } from './directives/confirm-password.directive';
 
 @NgModule({
   declarations: [
@@ -42,21 +51,30 @@ import { StartDraftingButtonComponent } from './components/start-drafting-button
     TwitterAuthButtonComponent,
     LoginFormComponent,
     ForgotPasswordPageComponent,
-    VerifyEmailPageComponent,
     CustomButtonComponent,
     CustomInputComponent,
     AccountCreatePageComponent,
     ChallengeDetailPageComponent,
     ChallengeDetailHeaderComponent,
     SkillTagComponent,
-    StartDraftingButtonComponent  
+    StartDraftingButtonComponent,
+    AccountProfilePageComponent,
+    EditProfilePageComponent,
+    LoadingStateComponent,
+    LoadingStateCompComponent,
+    ConfirmPasswordDirective  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    SkillsResolver,
+    ChallengesResolver,
+    ChallengeResolver
+  ],
   bootstrap: [AppComponent]
 })
 

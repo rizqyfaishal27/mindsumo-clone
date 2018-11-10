@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AppStateService } from '@app/services/app-state.service';
+import { Router } from '@angular/router';
+import { AuthService } from '@app/services/auth.service';
 
 
 @Component({
@@ -12,10 +15,28 @@ export class NavBarComponent implements OnInit {
   companyLogoImageSrc = '/assets/logo.png';
   authButtonSvgIcon = '/assets/sign-in.svg';
 
-  constructor() { }
+  constructor(
+    public appStateService: AppStateService,
+    private authService: AuthService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
     
+  }
+
+  onClick() {
+    this.appStateService.setIsShowAuthDialog(true);
+  }
+
+  onAccountClick(e) {
+    e.stopPropagation();
+    this.appStateService.setIsShowAccountMenu(true);
+  }
+
+  onLogoutClick(e) {
+    e.preventDefault();
+    this.authService.logout();
   }
 
 }

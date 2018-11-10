@@ -27,6 +27,11 @@ div.app-auth-dialog {
         & > p.to-page {
             font-size: 0.8rem;
         }
+
+        & a {
+            cursor: pointer;
+            color: #42a5b2;
+        }
         & > div.close-button {
             cursor: pointer;
             position: absolute;

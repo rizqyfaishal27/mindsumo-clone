@@ -1,4 +1,60 @@
 div {
     display: grid;
     grid-gap: 1rem;
+
+    & > form > div.input-field {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+        margin-bottom: 1rem;
+        & > img {
+            position: absolute;
+            height: 28px;
+            left: 0.75rem;
+        }
+    
+        & > input {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            padding-left: calc(1rem + 28px);
+            color: #444444;
+            border: 1px solid #444444;
+            &.no-icon {
+                padding-left: 0.75rem;
+            }
+
+            &.ng-invalid.ng-dirty.ng-touched {
+                border-color: red;
+            }
+        }
+
+
+    }
+
+    & > form {
+        & > button {
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 4px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 100%;
+            
+             background-color: #428ab5;
+            &:hover {
+                opacity: 0.9;
+            }
+            
+            &:disabled {
+                color: #696969;
+                 background-color: #dddddd;
+            }
+        }
+    }
 }

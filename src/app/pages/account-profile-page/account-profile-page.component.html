@@ -1,0 +1,41 @@
+<div class="app-account-profile-page">
+  <div *ngIf="appStateService.getState().isLogin">
+    <div>
+      <div class="avatar">
+        <img *ngIf="appStateService.getState().authData.user.avatar == null" 
+        src="/assets/friend-request.svg" />
+        <img *ngIf="appStateService.getState().authData.user.avatar != null" 
+        [src]="appStateService.getState().authData.user.avatar" />
+      </div>
+      <div class="name-title">
+        <h1>{{ appStateService.getState().authData.user.firstName }} 
+          {{ appStateService.getState().authData.user.lastName }}</h1>
+        <a routerLink="/edit-profile">
+          <img src="/assets/edit.svg" alt="pencil-icon" />
+          Edit profile
+        </a>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <h3>Skills</h3>
+        </div>
+        <div class="skills">
+          <span *ngFor="let skill of  appStateService.getState().authData.user.skills">
+            {{ skill.skillName }}
+          </span>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h3>Activities & Interests</h3>
+        </div>
+        <div>
+          <p *ngIf="appStateService.getState().authData.user.activitiesAndInterest == ''">-</p>
+          <p [innerHTML]="appStateService.getState().authData.user.activitiesAndInterest"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,6 +17,67 @@ div.app-challenge-detail-header {
             margin-top: 1rem;
             background-color: rgba(0, 0, 0, 0.3);
             padding: 0.5rem;
+            display: grid;
+            grid-template-columns: 2fr 3fr 4fr;
+            margin-bottom: 1rem;
+
+            & > div:last-child {
+                justify-items: end;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-items: center;
+                align-items: center;
+
+                & > div {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    & > div:first-child {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        & > h3 {
+                            margin: 0;
+                        }
+                        & > img {
+                            height: 20px;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                    & > p {
+                        margin: 0;
+                    }
+                }
+
+            }
+        }
+        & > div.challenge-description {
+            display: grid;
+            grid-template-areas: "desc img";
+            grid-template-columns: 6fr 4fr;
+            grid-gap: 1.5rem;
+
+            & > div:first-child {
+                grid-area: desc;
+                display: grid;
+                & > p, & p {
+                    margin: 0;
+                    font-size: 1.1rem;
+                    line-height: 1.5rem;
+                    &:not(:last-child) {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+
+            & > div:last-child {
+                display: grid;
+                grid-area: img;
+                width: 360px;
+                max-height: 360px;
+                border-radius: 5px;
+                overflow: hidden;
+            }
         }
         & > div.author {
             display: grid;

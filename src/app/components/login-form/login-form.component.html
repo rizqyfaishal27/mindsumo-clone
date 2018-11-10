@@ -1,8 +1,25 @@
 <div class="app-login-form">
-  <app-custom-input type="text" 
-    placeholder="Your email" svgIcon="/assets/opened-email-envelope.svg"></app-custom-input>
-  <app-custom-input svgIcon="/assets/locked-padlock.svg"
-    type="password" placeholder="Password" 
-  ></app-custom-input>
-  <app-custom-button buttonText="Continue" disabled="true"></app-custom-button>
+  <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit();" novalidate>
+    <div class="input-field">
+      <input [disabled]="isLoading" type="email" placeholder="Your email" name="email" #email="ngModel" required
+        [(ngModel)]="model.email" [email]="true" />
+      <img src="/assets/opened-email-envelope.svg" alt="suatu-icon-lah" />
+    </div>
+    <div class="input-field">
+      <input [disabled]="isLoading" type="password" placeholder="Your password" name="password" #password="ngModel"
+      required
+       #password="ngModel" [(ngModel)]="model.password"/>
+      <img src="/assets/locked-padlock.svg" alt="suatu-icon-lah" />
+    </div>
+    <button
+      [disabled]="email.invalid || password.invalid">
+      <span *ngIf="!isLoading">Continue</span>
+      <span *ngIf="isLoading">
+        <img src="/assets/loading2.svg" alt="just-loader-icon" height="25" width="100"/>
+      </span>
+    </button>
+    <div *ngIf="errors" style="margin: 1rem;">
+      {{ errors | json }}
+    </div>
+  </form>
 </div>

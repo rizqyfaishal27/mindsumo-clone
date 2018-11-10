@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VerifyEmailPageComponent } from './verify-email-page.component';
+import { LoadingStateComponent } from './loading-state.component';
 
-describe('VerifyEmailPageComponent', () => {
-  let component: VerifyEmailPageComponent;
-  let fixture: ComponentFixture<VerifyEmailPageComponent>;
+describe('LoadingStateComponent', () => {
+  let component: LoadingStateComponent;
+  let fixture: ComponentFixture<LoadingStateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VerifyEmailPageComponent ]
+      declarations: [ LoadingStateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VerifyEmailPageComponent);
+    fixture = TestBed.createComponent(LoadingStateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
