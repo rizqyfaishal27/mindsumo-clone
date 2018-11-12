@@ -1,11 +1,14 @@
 <div class="app-challenge-detail-header">
   <div>
     <div class="author">
-      <div>
-        <img src="/assets/group_2.svg" alt="account-icon" /> Anonymous
+      <div class="author-name">
+        <img *ngIf="challenge.author.avatar == null || challenge.isAnonymousAuthor" src="/assets/group_2.svg" alt="account-icon" /> 
+        <img *ngIf="challenge.author.avatar && !challenge.isAnonymousAuthor" [src]="challenge.author.avatar" alt="account-icon" /> 
+        {{ challenge.isAnonymousAuthor ? 'Anonymous' : (challenge.author.firstName + " " + challenge.author.lastName) }}
       </div>
       <div>
-        <p>Next challenge: <a href="#">Our next social media produ...</a></p>
+        <p *ngIf="challenge.nextChallengeId > 0">Next challenge: <a [routerLink]="'/challenge-detail/' + challenge.nextChallengeId">
+          {{ challenge.nextChallengeTitle }}</a></p>
       </div>
     </div>
     <h1>{{ challenge.title }}</h1>

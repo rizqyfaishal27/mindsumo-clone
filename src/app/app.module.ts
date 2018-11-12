@@ -35,6 +35,11 @@ import { ChallengesResolver } from '@app/pages/home-page/challenges-resolver';
 import { ChallengeResolver } from './pages/challenge-detail-page/challenge-resolver';
 import { ConfirmPasswordDirective } from './directives/confirm-password.directive';
 
+import { NgxEditorModule } from 'ngx-editor';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +73,9 @@ import { ConfirmPasswordDirective } from './directives/confirm-password.directiv
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxEditorModule,
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   providers: [
     SkillsResolver,

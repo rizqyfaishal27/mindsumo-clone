@@ -25,7 +25,9 @@
           </div>
           <div class="form-field">
             <label>Email</label>
-            <input type="email" placeholder="Your email" email="true" #email="ngModel"
+            <input type="email" 
+              (ngModelChange)="onEmailChange($event);"
+              placeholder="Your email" email="true" #email="ngModel" [ngClass]="{'ng-invalid': errors.email }"
               [(ngModel)]="user.email" name="email" required/>
             <div class="errors" *ngIf="email.errors && (email.touched || email.dirty)">
               <span *ngIf="email.errors.required">
@@ -33,6 +35,11 @@
               </span>
               <span *ngIf="email.errors.email">
                 Email lo ga valid gan
+              </span>
+            </div>
+            <div class="errors" *ngIf="errors.email">
+              <span>
+                {{ errors.email[0] }}
               </span>
             </div>
           </div>
@@ -64,8 +71,7 @@
               </span>
             </div>
           </div>
-          {{ registerForm.valid }}
-          <button>
+          <button [disabled]="isLoading || !registerForm.valid">
               <span *ngIf="!isLoading">Register</span>
               <span *ngIf="isLoading">
                 <img src="/assets/loading2.svg" alt="just-loader-icon" height="25" width="100"/>

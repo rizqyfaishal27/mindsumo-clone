@@ -1,7 +1,7 @@
 div.app-challenge-content {
     display: grid;
     grid-template-areas: "challenge-banner text-content";
-    grid-template-columns:  2fr 5fr;
+    grid-template-columns:  150px 5fr;
     grid-gap: 1rem;
     background-color: #ffffff;
     box-shadow: 2px 2px 2px #eaeaea;
@@ -29,9 +29,12 @@ div.app-challenge-content {
     }
     & > div:first-child {
         grid-area: challenge-banner;
+        max-height: 150px;
+        max-width: 150px;
         z-index: 2;
         display: grid;
         align-items: stretch;
+        overflow: hidden;
         & > img {
             width: 100%;
             z-index: 1;

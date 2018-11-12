@@ -5,9 +5,33 @@
       <h3>Deliverables</h3>
       <div [innerHTML]="challenge.deliverables" class="inner-html"></div>
     </div>
-    <div class="submission">
+    <div class="submission" id="submission-div">
       <h3>Submission</h3>
-      <div></div>
+
+      <form #submissionForm="ngForm" (ngSubmit)="submissionForm.valid && onSubmit();">
+        <div class="form-field">
+          <input type="text" name="title" max="100" placeholder="Title: Summarize your solution in max 100 characters."
+            #title="ngModel" [(ngModel)]="submission.title" name="title"/>
+          <div class="errors"></div>
+        </div>
+        <div class="form-field">
+          <div *ngIf="appStateService.getState().isLogin">
+            <div [froalaEditor] [(ngModel)]="submission.text" name="text" #text="ngModel">Your description here</div>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="#file">Attach your file max 10 MB</label>
+          <input id="file" type="file" [(ngModel)]="submission.file" #file="ngModel" name="file"/>
+        </div>
+        <div>
+          <button>
+            Submit
+          </button>
+        </div>
+      </form>
+      <div *ngIf="!appStateService.getState().isLogin">
+        <button (click)="showAuthDialog();" class="large-button">Start drafting your idea</button>
+      </div>
     </div>
   </div>
 </div>

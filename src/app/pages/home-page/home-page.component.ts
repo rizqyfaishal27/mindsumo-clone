@@ -69,7 +69,10 @@ export class HomePageComponent implements OnInit {
               challenge.status,
               challenge.banner_image,
               challenge.deliverables,
-              challenge.description
+              challenge.description,
+              challenge.is_anonymous_author,
+              challenge.next_challenge_id,
+              challenge.next_challenge_title            
             )
           );
       })

@@ -14,10 +14,20 @@ export class ChallengeDetailPageComponent implements OnInit {
 
   @Input() challenge: Challenge;
 
+  submission: any = {
+    title: "",
+    text: "",
+    file: ""
+  }
+
   constructor(
     public appStateService: AppStateService,
     private route: ActivatedRoute
   ) { }
+
+  showAuthDialog() {
+    this.appStateService.setIsShowAuthDialog(true);
+  }
 
   getChallengeDetail(): void {
     this.route.data
@@ -26,7 +36,7 @@ export class ChallengeDetailPageComponent implements OnInit {
         this.challenge = new Challenge(
           challenge.id,
           challenge.title,
-          challenge.skills.map(skill => new Skill(skill.id, skill.skill_name)),
+          challenge.skills.map(skill => new Skill(skill.id, skill.skill_name, skill.is_primary)),
           challenge.price,
           new User(
             challenge.author.id,
@@ -42,7 +52,7 @@ export class ChallengeDetailPageComponent implements OnInit {
             challenge.author.phone_number,
             challenge.author.facebook_id,
             challenge.author.twitter_id,
-            challenge.author.skills.map(skill => new Skill(skill.id, skill.skill_name)),
+            challenge.author.skills.map(skill => new Skill(skill.id, skill.skill_name, skill.is_primary)),
             challenge.author.activities_and_interest,
             challenge.author.organization_team_clubs,
             challenge.author.privacy_setting
@@ -52,7 +62,10 @@ export class ChallengeDetailPageComponent implements OnInit {
           challenge.status,
           challenge.banner_image,
           challenge.deliverables,
-          challenge.description
+          challenge.description,
+          challenge.is_anonymous_author,
+          challenge.next_challenge_id,
+          challenge.next_challenge_title
         );
       }, error => {
         console.log(error); 

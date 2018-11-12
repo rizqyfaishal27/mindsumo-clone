@@ -12,5 +12,105 @@ div.app-challenge-detail-page {
                 border-bottom: 1px solid #dddddd;
             }
         }
+        & > div.submission {
+            & > form {
+                display: grid;
+                grid-auto-flow: row;
+                justify-items: stretch;
+                align-items: start;
+                grid-gap: 1rem;
+                & > div.form-field {
+                    & > input[type="text"] {
+                        width: 100%;
+                        padding: 0.5rem;
+                        font-size: 1rem;
+                        color: #444444;
+                        border: 1px solid #444444;
+                        box-sizing: border-box;
+                        box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 1px 1px rgba(0,0,0,.16);
+                        border-radius: 4px;
+                        &.no-icon {
+                            padding-left: 0.75rem;
+                        }
+            
+                        &.ng-invalid.ng-dirty.ng-touched {
+                            border-color: red;
+                        }
+                    }
+
+                    & > label {
+                        display: block;
+                        font-size: 0.8rem;
+                    }
+
+                }
+                & > div:last-child {
+                    justify-self: end;  
+                    & > button {
+                        background: linear-gradient(to bottom, #42a5b2 0%, #428ab5 100%);
+                        color: #fff;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: center;
+                        padding: 1rem;
+                        border: none;
+                        outline: none;
+                        font-size: 1.3rem;
+                        cursor: pointer;
+
+                        & > img {
+                            margin-right: 0.5rem;
+                        }
+
+                        &:hover {
+                            opacity: 0.8;
+                        }
+
+                        &:focus {
+                            background: linear-gradient(to bottom, #42a5b2 0%, #366a88 100%);
+                        }
+
+                        &:active {
+                            background: linear-gradient(to bottom, #42a5b2 0%, #315569 100%);
+                        }
+                    }
+                }
+            }
+            & > div {
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                grid-gap: 1rem;
+                padding: 1rem 0;
+                & > button.large-button {
+                    background: linear-gradient(to bottom, #42a5b2 0%, #428ab5 100%);
+                    color: #fff;
+                    border-radius: 5px;
+                    display: flex;
+                    justify-content: center;
+                    padding: 1rem;
+                    border: none;
+                    outline: none;
+                    font-size: 1.3rem;
+                    cursor: pointer;
+
+                    & > img {
+                        margin-right: 0.5rem;
+                    }
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+
+                    &:focus {
+                        background: linear-gradient(to bottom, #42a5b2 0%, #366a88 100%);
+                    }
+
+                    &:active {
+                        background: linear-gradient(to bottom, #42a5b2 0%, #315569 100%);
+                    }
+                }
+            }
+        }
     }
 }

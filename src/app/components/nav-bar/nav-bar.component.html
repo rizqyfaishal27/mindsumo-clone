@@ -1,6 +1,6 @@
 <div class="nav-bar-wrapper">
   <div class="nav-bar">
-    <div class="nav-bar-company-logo">
+    <div class="nav-bar-company-logo" (click)="router.navigateByUrl('')">
       <img src="/assets/logo.png" alt="company-logo" height="36" />
     </div>
     <div class="nav-bar-auth-button" *ngIf="!appStateService.getState().isAppLoading ">

@@ -8,6 +8,8 @@ import { AppStateService } from '@app/services/app-state.service';
 })
 export class AccountProfilePageComponent implements OnInit {
 
+  isLoading: boolean = false;
+
   constructor(
     public appStateService: AppStateService
   ) { }

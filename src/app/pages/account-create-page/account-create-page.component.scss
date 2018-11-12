@@ -39,13 +39,15 @@ div.app-account-create-page {
                     &.no-icon {
                         padding-left: 0.75rem;
                     }
-                    &.ng-invalid.ng-touched {
-                        border-color: red;
-                    }
+                    
                     &.ng-valid.ng-dirty {
                         border-color: darkgreen;
                     }
                     &.confirm-password.ng-dirty.no-valid {
+                        border-color: red;
+                    }
+
+                    &.ng-invalid.ng-touched {
                         border-color: red;
                     }
                 }

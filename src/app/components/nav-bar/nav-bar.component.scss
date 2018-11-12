@@ -21,6 +21,7 @@ div.nav-bar-wrapper {
         & > div:nth-child(1) {
             grid-area: company-logo;
             justify-self: start;
+            cursor: pointer;
         }
 
         & > div:nth-child(2) {

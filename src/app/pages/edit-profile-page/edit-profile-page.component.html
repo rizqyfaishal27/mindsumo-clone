@@ -1,14 +1,8 @@
 <div class="app-edit-profile-page">
   <div>
     <div class="tabs">
-      <div class="active">
-        <h4>Personal</h4>
-      </div>
-      <div>
-        <h4>Picture</h4>
-      </div>
-      <div>
-        <h4>Other</h4>
+      <div *ngFor="let tab of tabs" [ngClass]="{'active': tab.isActive}" (click)="onTabClick(tab.text);">
+        <h4>{{ tab.text }}</h4>
       </div>
     </div>
     <div>

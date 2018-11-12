@@ -52,7 +52,7 @@ export class LoginFormComponent implements OnInit {
             response.user.phone_number,
             response.user.facebook_id,
             response.user.twitter_id,
-            response.user.skills.map(skill => new Skill(skill.id, skill.skill_name)),
+            response.user.skills.map(skill => new Skill(skill.id, skill.skill_name, skill.is_primary)),
             response.user.activities_and_interest,
             response.user.organization_team_clubs,
             response.user.privacy_setting

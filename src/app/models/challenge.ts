@@ -15,7 +15,8 @@ export class Challenge {
     bannerImage: string;
     deliverables: string;
     description: string;
-
+    nextChallengeId: number;
+    nextChallengeTitle: string;
     constructor(
         id: number, 
         title: string,
@@ -27,7 +28,10 @@ export class Challenge {
         status: string,
         bannerImage: string,
         deliverables: string,
-        description: string
+        description: string,
+        isAnonymousAuthor: boolean,
+        nextChallengeId: number,
+        nextChallengeTitle: string
     ) {
         this.id = id;
         this.title = title;
@@ -40,5 +44,8 @@ export class Challenge {
         this.bannerImage = bannerImage;
         this.deliverables = deliverables;
         this.description = description;
+        this.isAnonymousAuthor = isAnonymousAuthor;
+        this.nextChallengeId = nextChallengeId;
+        this.nextChallengeTitle = nextChallengeTitle;
     }
 }
