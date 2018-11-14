@@ -1,0 +1,16 @@
+div {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    grid-auto-rows: min-content;
+    min-height: calc(100vh - 120px);
+    & > div {
+        width: 900px;
+        display: grid;
+        align-items: center;
+
+        & > img {
+            width: 500px;
+        }
+    }
+}

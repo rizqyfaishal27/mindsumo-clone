@@ -4,6 +4,7 @@ div.app-account-profile-page {
     margin-top: 3rem;
     & > div {
         width: 900px;
+        box-sizing: border-box;
         min-height: calc(100vh - 200px);
         background-color: #ffffff;
         border-top: 6px solid #dcdcdc;

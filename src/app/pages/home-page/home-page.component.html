@@ -24,10 +24,13 @@
       </div>
     </div>
     <div>
+      <p *ngIf="challenges.length == 0">
+        No challenge
+      </p>
       <app-challenge-content *ngFor="let challenge of challenges" [challenge]="challenge"></app-challenge-content>
-      <div class="loadmore">
-        <p>Load more</p>
-        <img src="/assets/refresh-button.svg" alt="refresh-button" width="35">
+      <div class="loadmore" (click)="getNextChallenges();" *ngIf="nextChallengesLink">
+        <p>{{ isLoadingNextChallenges ? 'Loading ... ' : 'Load more'}}</p>
+        <img *ngIf="!isLoadingNextChallenges" src="/assets/refresh-button.svg" alt="refresh-button" width="35">
       </div>
     </div>
   </div>

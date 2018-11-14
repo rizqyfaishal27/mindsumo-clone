@@ -4,7 +4,7 @@ import { AuthService } from '@app/services/auth.service';
 import { Router } from '@angular/router';
 import { environment as env } from '@env/environment';
 import { Auth } from '@app/models/auth';
-import { User } from '@app/models/user';
+import { User, UserSubmission } from '@app/models/user';
 import { Skill } from '@app/models/skill';
 
 @Component({
@@ -81,7 +81,8 @@ export class AccountCreatePageComponent implements OnInit {
               responseLogin.user.skills.map(skill => new Skill(skill.id, skill.skill_name, skill.is_primary)),
               responseLogin.user.activities_and_interest,
               responseLogin.user.organization_team_clubs,
-              responseLogin.user.privacy_setting
+              responseLogin.user.privacy_setting,
+              responseLogin.user.submissions.map(submission => new UserSubmission(submission.id, submission.challenge))
             )
           );
           this.appStateService.setAuthUserData(authData);

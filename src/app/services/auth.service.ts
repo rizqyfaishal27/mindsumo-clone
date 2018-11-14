@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment as env } from '@env/environment';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { AppStateService } from './app-state.service';
 
@@ -10,7 +10,6 @@ import { AppStateService } from './app-state.service';
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
 
   constructor(
@@ -38,7 +37,6 @@ export class AuthService {
       }
       const header = new HttpHeaders({
         'Authorization': `JWT ${token}`,
-        'Content-Type': 'multipart/form-data'
       })
       return header;
     }
@@ -79,7 +77,20 @@ export class AuthService {
     localstorage.removeItem(env.authStorageKey);
     this.appStateService.setIsLogin(false);
     this.appStateService.setAuthUserData(null);
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('', { replaceUrl: true });
+  }
+
+  verifyToken(): Observable<any> {
+    const localstorage = window.localStorage;
+    const authToken = localStorage.getItem(env.authStorageKey);
+    this.appStateService.setIsAppLoading(true);
+    if(authToken == null || authToken == undefined) {
+      this.appStateService.setIsLogin(false);
+      this.appStateService.setIsAppLoading(false);
+      return of(null);
+    } else {
+      return this.$verifyToken(authToken);
+    }
   }
 
 }

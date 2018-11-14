@@ -6,6 +6,7 @@ div.app-account-create-page {
     min-height: calc(100vh - 200px);
     & > div {
         width: 900px;
+        box-sizing: border-box;
         display: grid;
         justify-items: center;
         align-items: start;

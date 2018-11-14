@@ -1,10 +1,15 @@
-<div class="app-challenge-content" routerLink="challenge-detail/{{challenge.id}}">
+<div class="app-challenge-content" routerLink="challenge-detail/{{challenge.id}}"
+[ngClass]="{'new': challenge.status == 1, 'reviewing': challenge.status == 2, 'completed': challenge.status == 3}" >
   <div class="app-challenge-banner">
     <img [src]="challenge.bannerImage" alt="banner-image" />
   </div>
-  <div class="ribbon-status">
-    <img src="/assets/flag.svg" alt="flag-icon" />
-    NEW
+  <div class="ribbon-status" 
+    [ngClass]="{'new': challenge.status == 1, 'reviewing': challenge.status == 2, 'completed': challenge.status == 3}">
+    <img *ngIf="challenge.status == 1" src="/assets/flag.svg" alt="flag-icon" />
+    <img *ngIf="challenge.status == 2" src="/assets/auction.svg" alt="flag-icon" />
+    <img *ngIf="challenge.status == 3" src="/assets/locked-padlock.svg" alt="flag-icon" />
+
+    {{ challenge.status != 1 ? (challenge.status != 2 ? 'COMPLETED' : 'REVIEWING') : 'NEW'}}
   </div>
   <div class="app-challenge-text-content">
     <div>
@@ -30,7 +35,7 @@
         <div>
           <div>
             <img src="/assets/clock.svg" alt="days-left-icon" />
-            <h3>{{ challenge.daysLeft }}</h3>
+            <h3>{{ challenge.dueDate | amAdd: 1 : 'days' | amDifference: today :'days' : false }}</h3>
           </div>
           <p>days left</p>
         </div>

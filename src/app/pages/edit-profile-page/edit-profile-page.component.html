@@ -6,7 +6,90 @@
       </div>
     </div>
     <div>
-      <div class="form"></div>
+      <div *ngIf="tabs[0].isActive" class="personal-form">
+        <form #personalForm="ngForm" novalidate (ngSubmit)="personalForm.valid && onPersonalSubmit();">
+          <div class="form-field">
+            <label for="#firstName">First name</label>
+            <input type="text" 
+              required
+              id="firstName" name="firstName" [(ngModel)]="personal.firstName" #firstName="ngModel" />
+          </div>
+          <div class="form-field">
+            <label for="#lastName">Last name</label>
+            <input type="text" 
+              required
+              id="lastName" name="lastName" [(ngModel)]="personal.lastName" #firstName="ngModel" />
+          </div>
+          <div class="form-field">
+            <label for="#birthdate">Birthdate</label>
+            <input type="date" 
+              id="birthdate" name="birthdate" [(ngModel)]="personal.birthdate" #firstName="ngModel" />
+          </div>
+          <div class="form-field">
+            <label for="#phoneNumber">Phone number</label>
+            <input type="text" 
+              id="phoneNumber" name="phoneNumber" [(ngModel)]="personal.phoneNumber" #firstName="ngModel" />
+          </div>
+          <div class="form-field">
+            <label for="#hometown">Home town</label>
+            <input type="text" 
+              id="hometown" name="hometown" [(ngModel)]="personal.hometown" #firstName="ngModel" />
+          </div>
+          
+          <button [disabled]="!personalForm.valid || isSubmitting">
+            <span *ngIf="isSubmitting">
+              <img src="/assets/loading2.svg" alt="loading-icon" height="40">
+            </span>
+            <span *ngIf="!isSubmitting">Update</span>
+          </button>
+          <p *ngIf="isPersonalUpdated">Updated successfully!</p>
+        </form>
+      </div>
+      <div *ngIf="tabs[1].isActive" class="image-form">
+        <form novalidate #imageForm="ngForm" (ngSubmit)="imageForm.valid && onImageSubmit()">
+          <div class="form-field">
+            <div class="picture-circle">
+              <img [src]="images.avatar" alt="user-avatar" height="150"/>
+              <a for="#tempAvatar" (click)="onBrowseClick($event);">Edit</a>
+              <input type="file" #tempAvatar="ngModel" [(ngModel)]="images.tempAvatar" name="tempAvatar" id="tempAvatar"
+                required (ngModelChange)="onPictureChange($event);" accept="image/*" />
+            </div>
+          </div>
+          <button [disabled]="!imageForm.valid || isSubmitting">
+            <span *ngIf="isSubmitting">
+              <img src="/assets/loading2.svg" alt="loading-icon" height="40">
+            </span>
+            <span *ngIf="!isSubmitting">Update picture</span>
+          </button>
+          <p *ngIf="isImageUpdated">Updated successfully!</p>
+
+        </form>
+      </div>
+      <div *ngIf="tabs[2].isActive" class="other-form">
+        <form #otherForm="ngForm" novalidate (ngSubmit)="otherForm.valid && onOtherSubmit();">
+          <div class="form-field">
+            <label for="#activitiesAndInterest">Activities and interest</label>
+            <textarea name="activitiesAndInterest" id="activitiesAndInterest" 
+              [(ngModel)]="others.activitiesAndInterest"
+              cols="30" rows="8"></textarea>
+          </div>
+          <div class="form-field">
+            <label for="organizationTeamClubst">Organization, team, and clubs</label>
+            <textarea name="organizationTeamClubs" id="organizationTeamClubs" 
+              [(ngModel)]="others.organizationTeamClubs"
+              cols="30" rows="8"></textarea>
+          </div>
+          <button [disabled]="!otherForm.valid || isSubmitting">
+            <span *ngIf="isSubmitting">
+              <img src="/assets/loading2.svg" alt="loading-icon" height="40">
+            </span>
+            <span *ngIf="!isSubmitting">Update</span>
+          </button>
+          <p *ngIf="isOtherUpdated">Updated successfully!</p>
+
+        </form>
+      </div>
+
     </div>
   </div>
 </div>

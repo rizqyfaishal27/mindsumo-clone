@@ -46,4 +46,8 @@ export class AppStateService {
   setIsAfterRegister(val: boolean): void {
     this.state.setIsAfterRegister(val);
   }
+
+  setNextChallengeLink(link: string) {
+    this.state.setNextChallengeLink(link);
+  }
 }

@@ -1,0 +1,37 @@
+<div class="app-home-page-wrapper">
+    <app-loading-state *ngIf="skills == null || challenges == null"></app-loading-state>
+    <div class="app-home-page-header" *ngIf="skills != null && challenges != null">
+      <app-home-page-header></app-home-page-header>
+    </div>
+    <div class="app-home-page-content" *ngIf="skills != null && challenges != null">
+      <div>
+        <div>
+          <app-type-filter *ngFor="let type of types" [type]="type"></app-type-filter>
+        </div>
+        <div class="skill-filter">
+          <h3>FILTER CHALLENGES BY SKILL</h3>
+          <app-skill-filter *ngFor="let skill of skills"  [skill]="skill" (onClick)="onClick(skill)"></app-skill-filter>
+        </div>
+        <div>
+          <p>
+            <b>Why mindsumo?</b>
+            We help young professionals develop their problem-solving skills, earn money, and make a positive impact on the world's biggest businesses.
+          </p>
+          <a href="#" class="learnmore">
+            <img src="/assets/arrow-pointing-right-in-a-circle.svg" alt="pointing-right">
+            Learn how
+          </a>
+        </div>
+      </div>
+      <div>
+        <p *ngIf="challenges.length == 0">
+          No challenge
+        </p>
+        <app-challenge-content *ngFor="let challenge of challenges" [challenge]="challenge"></app-challenge-content>
+        <div class="loadmore" (click)="getNextChallenges();" *ngIf="nextChallengesLink">
+          <p>{{ isLoadingNextChallenges ? 'Loading ... ' : 'Load more'}}</p>
+          <img *ngIf="!isLoadingNextChallenges" src="/assets/refresh-button.svg" alt="refresh-button" width="35">
+        </div>
+      </div>
+    </div>
+  </div>

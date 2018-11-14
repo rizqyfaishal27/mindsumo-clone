@@ -1,31 +1,59 @@
-<div class="app-challenge-detail-page">
-  <app-challenge-detail-header [challenge]="challenge"></app-challenge-detail-header>
-  <div>
+<div class="app-challenge-detail-page" *ngIf="!isLoading">
+  <div *ngIf="challenge == null" class="not-found">
+    <div>
+      <h1>We lost this page</h1>
+      <h4>We searched high and low but couldn’t find what you’re looking for. Let’s find a better 
+          place for you to go.
+      </h4>
+      <img src="/assets/404.png" alt="404-picture" />
+    </div>
+  </div>
+  <app-challenge-detail-header *ngIf="challenge != null" [challenge]="challenge"></app-challenge-detail-header>
+  <div *ngIf="challenge != null">
     <div class="deliverables">
       <h3>Deliverables</h3>
       <div [innerHTML]="challenge.deliverables" class="inner-html"></div>
     </div>
-    <div class="submission" id="submission-div">
+    <div class="submission" id="submission-div" 
+       >
       <h3>Submission</h3>
-
-      <form #submissionForm="ngForm" (ngSubmit)="submissionForm.valid && onSubmit();">
+      <div *ngIf="appStateService.getState().isLogin && challenge.status == 1 && checkIfUserAlreadySubmitted(challenge.id)">
+        <p>You have been submitted on this challenge.</p>
+      </div>
+      <div *ngIf="challenge.status != 1">
+        <p>This challenge is over.</p>
+      </div>
+      <form #submissionForm="ngForm" (ngSubmit)="submissionForm.valid && onSubmit();" 
+        *ngIf="challenge.status == 1 && appStateService.getState().isLogin && !checkIfUserAlreadySubmitted(challenge.id)">
         <div class="form-field">
-          <input type="text" name="title" max="100" placeholder="Title: Summarize your solution in max 100 characters."
+          <input type="text" name="title" max="100" 
+            required="true" [ngClass]="{ 'ng-invalid': errors.submission_title }"
+            placeholder="Title: Summarize your solution in max 100 characters." 
             #title="ngModel" [(ngModel)]="submission.title" name="title"/>
-          <div class="errors"></div>
-        </div>
-        <div class="form-field">
-          <div *ngIf="appStateService.getState().isLogin">
-            <div [froalaEditor] [(ngModel)]="submission.text" name="text" #text="ngModel">Your description here</div>
+          <div class="errors" *ngIf="errors.submission_title">
+            <span>
+              {{ errors.submission_title[0] }}
+            </span>
           </div>
         </div>
         <div class="form-field">
-          <label for="#file">Attach your file max 10 MB</label>
-          <input id="file" type="file" [(ngModel)]="submission.file" #file="ngModel" name="file"/>
+          <div *ngIf="appStateService.getState().isLogin">
+            <div [froalaEditor] [(ngModel)]="submission.text" required="true"
+              name="text" #text="ngModel">Your description here</div>
+            <div class="errors"></div>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="#file">Attach your file max 10 MB (optional)</label>
+          <input id="file" type="file" [(ngModel)]="submission.file" #file="ngModel" name="file" 
+            accept="application/pdf, image/png, image/jpg, image/jpeg, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/doc"/>
         </div>
         <div>
-          <button>
-            Submit
+          <button [disabled]="!submissionForm.valid || isSubmitting">
+            <span *ngIf="!isSubmitting">Submit</span>
+            <span *ngIf="isSubmitting">
+              <img src="/assets/loading2.svg" alt="loader-icon" height="40" />
+            </span>
           </button>
         </div>
       </form>

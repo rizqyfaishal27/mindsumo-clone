@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '@app/services/auth.service';
 import { AppStateService } from '@app/services/app-state.service';
 import { Auth } from '@app/models/auth';
-import { User } from '@app/models/user';
+import { User, UserSubmission } from '@app/models/user';
 import { Skill } from '@app/models/skill';
 
 @Component({
@@ -55,7 +55,9 @@ export class LoginFormComponent implements OnInit {
             response.user.skills.map(skill => new Skill(skill.id, skill.skill_name, skill.is_primary)),
             response.user.activities_and_interest,
             response.user.organization_team_clubs,
-            response.user.privacy_setting
+            response.user.privacy_setting,
+            response.user.submissions.map(submission => 
+              new UserSubmission(submission.id, submission.challenge))
           )
         )
         this.appStateService.setIsLogin(true);

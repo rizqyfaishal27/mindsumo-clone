@@ -11,12 +11,13 @@ export class Challenge {
     updatedAt: Date;
     dueDate: Date;
     isAnonymousAuthor: boolean;
-    status: string;
+    status: number;
     bannerImage: string;
     deliverables: string;
     description: string;
     nextChallengeId: number;
     nextChallengeTitle: string;
+    totalSubmission: number;
     constructor(
         id: number, 
         title: string,
@@ -25,13 +26,15 @@ export class Challenge {
         author: User,
         createdAt: Date,
         updatedAt: Date,
-        status: string,
+        status: number,
         bannerImage: string,
         deliverables: string,
         description: string,
         isAnonymousAuthor: boolean,
         nextChallengeId: number,
-        nextChallengeTitle: string
+        nextChallengeTitle: string,
+        totalSubmission: number,
+        dueDate: Date
     ) {
         this.id = id;
         this.title = title;
@@ -47,5 +50,7 @@ export class Challenge {
         this.isAnonymousAuthor = isAnonymousAuthor;
         this.nextChallengeId = nextChallengeId;
         this.nextChallengeTitle = nextChallengeTitle;
+        this.totalSubmission = totalSubmission;
+        this.dueDate = dueDate;
     }
 }

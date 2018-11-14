@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiBaseUrl: 'http://localhost:8000/api/v1',
+  production: true,
+  apiBaseUrl: 'http://mindsumo-clone-admin.herokuapp.com/api/v1',
   authStorageKey: 'auth-token'
 };
 

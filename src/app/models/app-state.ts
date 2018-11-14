@@ -12,8 +12,14 @@ export class AppState {
     isAccountCreatePageLoading: boolean = false;
     isAfterRegister: boolean = false;
     authData: Auth;
+    nextChallengeLink: string;
+
 
     constructor() {}
+
+    public setNextChallengeLink(link: string) {
+        this.nextChallengeLink = link;
+    }
 
     public setIsLogin(val: boolean): void {
         this.isLogin = val;

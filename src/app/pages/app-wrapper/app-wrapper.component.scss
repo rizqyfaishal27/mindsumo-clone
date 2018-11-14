@@ -1,0 +1,27 @@
+div.app-wrapper {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas: "navbar" "router-outlet" "content" "footer";
+
+    & > *:nth-child(3) {
+        grid-area: content;
+    }
+
+    & > app-nav-bar {
+        grid-area: navbar;
+    }
+
+    & > router-outlet {
+        margin-top: 10px;
+        grid-area: router-outlet;
+    }
+
+    & > app-footer {
+        grid-area: footer;
+    }
+
+    div.inner-html > p {
+        margin: 0;
+        line-height: 1.3rem;   
+    }
+}

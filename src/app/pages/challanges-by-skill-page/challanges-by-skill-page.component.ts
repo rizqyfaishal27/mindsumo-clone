@@ -9,11 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ChallengeService } from '@app/services/challenge.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-challanges-by-skill-page',
+  templateUrl: './challanges-by-skill-page.component.html',
+  styleUrls: ['./challanges-by-skill-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class ChallangesBySkillPageComponent implements OnInit {
 
   types = TYPES;
   skills: Skill[];
@@ -98,6 +98,7 @@ export class HomePageComponent implements OnInit {
   getChallenges(): void {
     this.route.data
       .subscribe(data => {
+        console.log(data);
         const challenges = data.challenges;
         this.nextChallengesLink = challenges.next;
         this.challenges = this.generateChallengesObject(challenges);
@@ -108,5 +109,4 @@ export class HomePageComponent implements OnInit {
     this.getChallenges();
     this.getSkills();
   }
-
 }

@@ -9,6 +9,14 @@ div.app-challenge-content {
     border: #e3e3e3 solid 1px;
     border-top: 4px solid #90bd4a;
     position: relative;
+
+    &.reviewing {
+        border-top-color: #ffc844;
+    }
+
+    &.completed {
+        border-top-color: #b1afaf;
+    }
     & > div:nth-child(2).ribbon-status {
         position: absolute;
         top: -1.2rem;
@@ -25,6 +33,17 @@ div.app-challenge-content {
         & > img {
             height: 1rem;
             margin-right: 5px;
+        }
+
+        &.reviewing {
+            background-color: #ffc844;
+            box-shadow: 1px 2px 0px 0px #e8bf5a;
+
+        }
+
+        &.completed {
+            box-shadow: 1px 2px 0px 0px #e2dede;
+            background-color: #b1afaf;
         }
     }
     & > div:first-child {

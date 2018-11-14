@@ -30,16 +30,22 @@
         </div>
         <div>
           <div>
-            <h3>0</h3>
+            <h3>{{ challenge.totalSubmission }}</h3>
           </div>
           <p>submissions</p>
         </div>
-        <div>
+        <div *ngIf="challenge.status == 1">
           <div>
             <img src="/assets/clock_white.svg" alt="clock" />
-            <h3>3</h3>
+            <h3>{{ challenge.dueDate | amAdd: 1 : 'days' | amDifference: today :'days' : false }}</h3>
           </div>
           <p>days left</p>
+        </div>
+        <div *ngIf="challenge.status != 1">
+          <div>
+            <img src="/assets/clock_white.svg" alt="clock" />
+            <h3>DONE</h3>
+          </div>
         </div>
       </div>
     </div>

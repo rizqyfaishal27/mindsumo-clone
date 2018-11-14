@@ -1,5 +1,18 @@
 import { Skill } from '@app/models/skill';
 
+export class UserSubmission {
+    id: number;
+    challenge: number;
+
+    constructor(
+        id: number,
+        challenge: number
+    ) {
+        this.id = id;
+        this.challenge = challenge;
+    }
+}
+
 export class User {
     id: number;
     firstName: string;
@@ -11,13 +24,14 @@ export class User {
     username: string;
     birthdate: Date;
     hometown: string;
-    phone_number: string;
+    phoneNumber: string;
     facebookId: string;
     twitterId: string;
     skills: Skill[];
     activitiesAndInterest: string;
     organizationTeamClubs: string;
     privacySetting: number;
+    submissions: UserSubmission[];
 
     constructor(
         id: number,
@@ -30,13 +44,14 @@ export class User {
         username: string,
         birthdate: Date,
         hometown: string,
-        phone_number: string,
+        phoneNumber: string,
         facebookId: string,
         twitterId: string,
         skills: Skill[],
         activitiesAndInterest: string,
         organizationTeamClubs: string,
         privacySetting: number,
+        submissions: UserSubmission[]
     ) {
         this.id = id;
         this.firstName = firstName;
@@ -48,12 +63,13 @@ export class User {
         this.username = username;
         this.birthdate = birthdate;
         this.hometown = hometown;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.facebookId = facebookId;
         this.twitterId = twitterId;
         this.skills = skills;
         this.activitiesAndInterest = activitiesAndInterest;
         this.organizationTeamClubs = organizationTeamClubs;
         this.privacySetting = privacySetting;
+        this.submissions = submissions;
     }
 }

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ChallengeService } from '@app/services/challenge.service';
-import { catchError } from 'rxjs/operators';
 
 @Injectable()
-export class ChallengeResolver implements Resolve<Observable<any>> {
+export class ChallengesBySkillResolver implements Resolve<Observable<any>> {
     constructor(
         private challengeService: ChallengeService
     ) {}
@@ -13,7 +12,7 @@ export class ChallengeResolver implements Resolve<Observable<any>> {
     public resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<any> {
-      const challengeId =  +route.paramMap.get('challengeId');
-      return this.challengeService.$getChallengeDetail(challengeId);
-    }                                                           
+       const skill = route.params.skill;
+       return this.challengeService.$getChallengesBySkill(skill);
+    }
 }

@@ -33,11 +33,18 @@ import { LoadingStateCompComponent } from './components/loading-state-comp/loadi
 import { SkillsResolver } from '@app/pages/home-page/skills-resolver';
 import { ChallengesResolver } from '@app/pages/home-page/challenges-resolver';
 import { ChallengeResolver } from './pages/challenge-detail-page/challenge-resolver';
+import { VerifyTokenResolver } from '@app/pages/app-wrapper/verify-token-resolver';
 import { ConfirmPasswordDirective } from './directives/confirm-password.directive';
+import { ChallengesBySkillResolver } from '@app/pages/challanges-by-skill-page/challenges-by-skill-resolver';
 
-import { NgxEditorModule } from 'ngx-editor';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-
+import { MomentModule } from 'ngx-moment';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { FileAccessDirective } from './directives/file-access.directive';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressRouterModule } from '@ngx-progressbar/router';
+import { AppWrapperComponent } from './pages/app-wrapper/app-wrapper.component';
+import { ChallangesBySkillPageComponent } from './pages/challanges-by-skill-page/challanges-by-skill-page.component';
 
 
 @NgModule({
@@ -67,20 +74,28 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     EditProfilePageComponent,
     LoadingStateComponent,
     LoadingStateCompComponent,
-    ConfirmPasswordDirective  
+    ConfirmPasswordDirective,
+    NotFoundPageComponent,
+    FileAccessDirective,
+    AppWrapperComponent,
+    ChallangesBySkillPageComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxEditorModule,
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+    MomentModule,
+    NgProgressModule.forRoot(),
+    NgProgressRouterModule
   ],
   providers: [
     SkillsResolver,
     ChallengesResolver,
-    ChallengeResolver
+    ChallengeResolver,
+    VerifyTokenResolver,
+    ChallengesBySkillResolver
   ],
   bootstrap: [AppComponent]
 })
