@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AuthDialogComponent implements OnInit {
 
   @Input() show: boolean;
-  
+
   constructor(
     public appStateService: AppStateService,
     private route: Router
@@ -21,11 +21,11 @@ export class AuthDialogComponent implements OnInit {
 
   onCreateNewAccountClick(): void {
     this.appStateService.setIsShowAuthDialog(false);
-    this.route.navigateByUrl('account-create');
+    this.route.navigateByUrl('/account-create');
   }
 
   onForgotPasswordClick(): void {
     this.appStateService.setIsShowAuthDialog(false);
-    this.route.navigateByUrl('forgot-password');
+    this.route.navigateByUrl('/forgot-password');
   }
 }

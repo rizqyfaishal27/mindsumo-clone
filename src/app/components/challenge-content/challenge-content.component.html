@@ -1,9 +1,9 @@
-<div class="app-challenge-content" routerLink="challenge-detail/{{challenge.id}}"
+<div class="app-challenge-content" routerLink="/challenge-detail/{{challenge.id}}"
 [ngClass]="{'new': challenge.status == 1, 'reviewing': challenge.status == 2, 'completed': challenge.status == 3}" >
   <div class="app-challenge-banner">
     <img [src]="challenge.bannerImage" alt="banner-image" />
   </div>
-  <div class="ribbon-status" 
+  <div class="ribbon-status"
     [ngClass]="{'new': challenge.status == 1, 'reviewing': challenge.status == 2, 'completed': challenge.status == 3}">
     <img *ngIf="challenge.status == 1" src="/assets/flag.svg" alt="flag-icon" />
     <img *ngIf="challenge.status == 2" src="/assets/auction.svg" alt="flag-icon" />

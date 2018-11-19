@@ -1,5 +1,5 @@
 <div class="app-login-form">
-  <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit();" novalidate>
+  <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit($event);" novalidate>
     <div class="input-field">
       <input [disabled]="isLoading" type="email" placeholder="Your email" name="email" #email="ngModel" required
         [(ngModel)]="model.email" [email]="true" />
@@ -11,6 +11,7 @@
        #password="ngModel" [(ngModel)]="model.password"/>
       <img src="/assets/locked-padlock.svg" alt="suatu-icon-lah" />
     </div>
+    {{ errors | json }}
     <button
       [disabled]="email.invalid || password.invalid">
       <span *ngIf="!isLoading">Continue</span>
@@ -18,8 +19,5 @@
         <img src="/assets/loading2.svg" alt="just-loader-icon" height="25" width="100"/>
       </span>
     </button>
-    <div *ngIf="errors" style="margin: 1rem;">
-      {{ errors | json }}
-    </div>
   </form>
 </div>

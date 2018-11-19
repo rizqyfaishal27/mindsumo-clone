@@ -97,7 +97,7 @@ export class EditProfilePageComponent implements OnInit {
   onPictureChange(e) {
     const file = e[0];
     this.readFile(file)
-      .then(imageData => {
+      .then((imageData: any) => {
         this.images = {
           avatar: this.sanitaze.bypassSecurityTrustUrl(imageData.dataURL),
           tempAvatar: imageData.file
@@ -201,10 +201,10 @@ export class EditProfilePageComponent implements OnInit {
       // Read the image via FileReader API and save image result in state.
       reader.onload = function (e) {
         // Add the file name to the data URL
-        let dataURL = e.target.result;
-        dataURL = dataURL.replace(";base64", `;name=${file.name};base64`);
+        let dataURL = reader.result;
+        dataURL = dataURL.toString().replace(";base64", `;name=${file.name};base64`);
         const returnVal: any = {
-          file: file,
+          file: file, 
           dataURL: dataURL
         };
         resolve(returnVal);

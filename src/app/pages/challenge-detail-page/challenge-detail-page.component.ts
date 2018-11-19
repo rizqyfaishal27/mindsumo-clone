@@ -86,7 +86,7 @@ export class ChallengeDetailPageComponent implements OnInit {
             challenge.due_date
           );
         }
-      }, 
+      },
       (error) => {
         this.isLoading = false;
         this.challenge = null;

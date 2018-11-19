@@ -11,3 +11,7 @@ div.inner-html p {
     margin-bottom: 1rem;
     line-height: 1.5rem;
 }
+
+a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
+  display: none!important;
+}
